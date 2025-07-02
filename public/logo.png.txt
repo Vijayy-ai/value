@@ -1,0 +1,2 @@
+<!-- This is a placeholder for the logo.png file -->
+<!-- You'll need to add your actual logo.png file to the public folder -->
