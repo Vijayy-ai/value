@@ -223,11 +223,74 @@ export default function Home() {
 
       {/* Team Section - WHITE & THEME COLORS */}
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-cyan-50 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-40 h-40 border-2 border-cyan-400 rounded-full" />
-          <div className="absolute bottom-32 right-20 w-32 h-32 border-2 border-blue-400 rounded-full" />
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 border-2 border-cyan-300 rounded-full" />
+        {/* Enhanced Background decorative elements */}
+        <div className="absolute inset-0">
+          {/* Animated gradient orbs */}
+          <motion.div
+            animate={{ 
+              x: [0, 100, 0],
+              y: [0, 50, 0],
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ duration: 20, repeat: Infinity }}
+            className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-cyan-400/30 to-blue-400/30 rounded-full blur-xl"
+          />
+          <motion.div
+            animate={{ 
+              x: [0, -80, 0],
+              y: [0, 30, 0],
+              scale: [1.2, 1, 1.2],
+              opacity: [0.15, 0.25, 0.15]
+            }}
+            transition={{ duration: 25, repeat: Infinity, delay: 5 }}
+            className="absolute bottom-32 right-20 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 rounded-full blur-xl"
+          />
+          <motion.div
+            animate={{ 
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ duration: 30, repeat: Infinity, delay: 10 }}
+            className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-cyan-300/30 to-blue-300/30 rounded-full blur-lg"
+          />
+          
+          {/* Floating particles */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, Math.sin(i) * 20, 0],
+                opacity: [0.3, 0.6, 0.3],
+                scale: [1, 1.2, 1]
+              }}
+              transition={{
+                duration: 6 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 1.5,
+                ease: "easeInOut"
+              }}
+              className="absolute w-2 h-2 bg-cyan-400/50 rounded-full"
+              style={{
+                top: `${20 + (i % 3) * 30}%`,
+                left: `${10 + (i % 4) * 25}%`,
+              }}
+            />
+          ))}
+          
+          {/* Geometric shapes */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 right-1/4 w-16 h-16 border-2 border-cyan-400/40 rounded-lg"
+          />
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-1/4 left-1/3 w-12 h-12 border-2 border-blue-400/40 rounded-full"
+          />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -452,9 +515,71 @@ export default function Home() {
       </section>
 
       {/* Subscribe Newsletter Section - WHITE */}
-      <section className="py-16 bg-gradient-to-br from-white via-gray-50 to-cyan-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-gradient-to-r from-white to-cyan-50 rounded-3xl p-16 relative overflow-hidden shadow-2xl border border-cyan-200">
+      <section className="py-16 bg-gradient-to-br from-white via-gray-50 to-cyan-50 relative overflow-hidden">
+        {/* Enhanced background elements */}
+        <div className="absolute inset-0">
+          {/* Animated gradient waves */}
+          <motion.div
+            animate={{ 
+              scaleX: [1, 1.5, 1],
+              scaleY: [1, 1.2, 1],
+              opacity: [0.1, 0.3, 0.1]
+            }}
+            transition={{ duration: 8, repeat: Infinity }}
+            className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-cyan-200/30 to-blue-200/30 transform -skew-y-1"
+          />
+          <motion.div
+            animate={{ 
+              scaleX: [1.2, 1, 1.2],
+              scaleY: [1, 1.3, 1],
+              opacity: [0.15, 0.25, 0.15]
+            }}
+            transition={{ duration: 12, repeat: Infinity, delay: 3 }}
+            className="absolute bottom-0 right-0 w-full h-24 bg-gradient-to-l from-blue-200/30 to-cyan-200/30 transform skew-y-1"
+          />
+          
+          {/* Floating elements */}
+          {[...Array(10)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                y: [0, -40, 0],
+                x: [0, Math.sin(i) * 30, 0],
+                opacity: [0.2, 0.5, 0.2],
+                rotate: [0, 360, 0]
+              }}
+              transition={{
+                duration: 8 + i * 0.5,
+                repeat: Infinity,
+                delay: i * 0.8,
+                ease: "easeInOut"
+              }}
+              className="absolute"
+              style={{
+                top: `${10 + (i % 5) * 20}%`,
+                left: `${5 + (i % 3) * 35}%`,
+              }}
+            >
+              {i % 3 === 0 ? (
+                <div className="w-3 h-3 bg-cyan-400/50 rounded-full" />
+              ) : i % 3 === 1 ? (
+                <div className="w-2 h-2 bg-blue-400/50 rounded-full" />
+              ) : (
+                <div className="w-1 h-1 bg-cyan-300/50 rounded-full" />
+              )}
+            </motion.div>
+          ))}
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div 
+            className="bg-gradient-to-r from-white to-cyan-50 rounded-3xl p-16 relative overflow-hidden shadow-2xl border border-cyan-200"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
+            whileHover={{ scale: 1.01, transition: { duration: 0.3 } }}
+          >
             {/* Background Elements */}
             <div className="absolute inset-0">
               <motion.div
@@ -523,44 +648,88 @@ export default function Home() {
                 
                 <div className="lg:col-span-1">
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-cyan-300 shadow-xl"
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                    className="bg-gradient-to-br from-white to-cyan-50/50 backdrop-blur-sm rounded-2xl p-8 border border-cyan-300 shadow-xl relative overflow-hidden group"
                   >
-                    <form className="space-y-4">
-                      <div>
-                        <input
-                          type="email"
-                          placeholder="Enter your email address"
-                          className="w-full px-6 py-4 rounded-xl bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-gray-800 placeholder-gray-500"
-                        />
-                      </div>
-                      
-                      <motion.button
-                        whileHover={{ scale: 1.02, backgroundColor: "#06b6d4" }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full bg-cyan-600 text-white px-6 py-4 rounded-xl font-bold text-lg hover:bg-cyan-700 hover:shadow-xl transition-all duration-300"
-                      >
-                        Subscribe Now →
-                      </motion.button>
-                    </form>
+                    {/* Animated background on hover */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-blue-400/5 opacity-0 group-hover:opacity-100"
+                      transition={{ duration: 0.3 }}
+                    />
                     
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      viewport={{ once: true }}
-                      className="text-gray-500 text-sm mt-4 text-center"
+                    {/* Sparkle effect */}
+                    <motion.div
+                      animate={{
+                        rotate: 360,
+                        scale: [1, 1.2, 1]
+                      }}
+                      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                      className="absolute top-4 right-4 w-6 h-6 text-cyan-400"
                     >
-                      🔒 We respect your privacy. No spam, ever.
-                    </motion.p>
+                      ✨
+                    </motion.div>
+                    
+                    <div className="relative z-10">
+                      <motion.form 
+                        className="space-y-4"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        <div>
+                          <motion.input
+                            type="email"
+                            placeholder="Enter your email address"
+                            className="w-full px-6 py-4 rounded-xl bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-gray-800 placeholder-gray-500 transition-all duration-300"
+                            whileFocus={{ scale: 1.02, boxShadow: "0 10px 25px rgba(6, 182, 212, 0.2)" }}
+                          />
+                        </div>
+                        
+                        <motion.button
+                          whileHover={{ 
+                            scale: 1.05, 
+                            backgroundColor: "#06b6d4",
+                            boxShadow: "0 15px 30px rgba(6, 182, 212, 0.4)"
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-full bg-cyan-600 text-white px-6 py-4 rounded-xl font-bold text-lg hover:bg-cyan-700 transition-all duration-300 relative overflow-hidden group"
+                        >
+                          <motion.span
+                            className="relative z-10"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            Subscribe Now →
+                          </motion.span>
+                          {/* Button shine effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            animate={{ x: ["-100%", "100%"] }}
+                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                          />
+                        </motion.button>
+                      </motion.form>
+                      
+                      <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-gray-500 text-sm mt-4 text-center"
+                      >
+                        🔒 We respect your privacy. No spam, ever.
+                      </motion.p>
+                    </div>
                   </motion.div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
       

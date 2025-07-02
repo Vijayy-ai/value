@@ -47,22 +47,25 @@ const Navbar = () => {
                     {/* Nav Links - Center */}
                     <div className="flex-1 flex justify-center">
                         <div className="flex items-center space-x-10">
-                            {['Home', 'About Us', 'Services', 'Our Team', 'Our Reach', 'Contact Us'].map((item, index) => (
-                                <motion.div
-                                    key={item}
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 + 0.3 }}
-                                    whileHover={{ y: -2 }}
-                                >
-                                    <Link
-                                        href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                        className="text-white hover:text-cyan-300 transition-colors duration-300 text-lg font-medium"
+                            {['Home', 'About Us', 'Services', 'Our Team', 'Our Reach', 'Contact Us'].map((item, index) => {
+                                const href = item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`;
+                                return (
+                                    <motion.div
+                                        key={item}
+                                        initial={{ opacity: 0, y: -20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1 + 0.3 }}
+                                        whileHover={{ y: -2 }}
                                     >
-                                        {item}
-                                    </Link>
-                                </motion.div>
-                            ))}
+                                        <Link
+                                            href={href}
+                                            className="text-white hover:text-cyan-300 transition-colors duration-300 text-lg font-medium"
+                                        >
+                                            {item}
+                                        </Link>
+                                    </motion.div>
+                                );
+                            })}
                         </div>
                     </div>
                     <Link
