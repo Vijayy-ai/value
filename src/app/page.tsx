@@ -1,5 +1,6 @@
+
+"use client";
 import RotatingCard from '../components/RotatingCard';
-'use client';
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
