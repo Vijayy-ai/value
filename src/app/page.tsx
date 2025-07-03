@@ -1,3 +1,4 @@
+import RotatingCard from '../components/RotatingCard';
 'use client';
 
 import { motion } from 'framer-motion';
@@ -8,7 +9,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StickyScroll from '../components/StickyScroll';
 import ParticleCanvas from '../components/ParticleCanvas';
-import RotatingCard from '../components/RotatingCard';
+
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -30,7 +31,7 @@ export default function Home() {
         <StickyScroll />
       </section>
 
-      {/* Discover Who We Are Section - WHITE - MOBILE RESPONSIVE */}
+      {/* Discover Who We Are Section - WHITE */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-white via-gray-50 to-cyan-50 relative overflow-hidden">
         <ParticleCanvas />
         
@@ -136,7 +137,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What Sets Us Apart Section - THEME - MOBILE RESPONSIVE */}
+      {/* What Sets Us Apart Section - THEME */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-[#0066aa] via-[#004477] to-[#002445] relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -216,15 +217,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team Section - WHITE & THEME COLORS - MOBILE RESPONSIVE */}
+      {/* Chart Analytics Section - DISABLED */}
+      {/* <section className="py-20 bg-gradient-to-br from-[#002445] via-[#003366] to-[#004477] relative overflow-hidden">
+        Chart Analytics Section content removed
+      </section> */}
+
+      {/* Team Section - WHITE & THEME COLORS */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-white via-gray-50 to-cyan-50 relative overflow-hidden">
         {/* Enhanced Background decorative elements */}
         <div className="absolute inset-0">
           {/* Animated gradient orbs */}
           <motion.div
             animate={{ 
-              x: [0, 50, 0],
-              y: [0, 25, 0],
+              x: [0, 100, 0],
+              y: [0, 50, 0],
               scale: [1, 1.2, 1],
               opacity: [0.1, 0.2, 0.1]
             }}
@@ -233,42 +239,63 @@ export default function Home() {
           />
           <motion.div
             animate={{ 
-              x: [0, -40, 0],
-              y: [0, 15, 0],
+              x: [0, -80, 0],
+              y: [0, 30, 0],
               scale: [1.2, 1, 1.2],
               opacity: [0.15, 0.25, 0.15]
             }}
             transition={{ duration: 25, repeat: Infinity, delay: 5 }}
             className="absolute bottom-16 md:bottom-32 right-10 md:right-20 w-16 md:w-32 h-16 md:h-32 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 rounded-full blur-xl"
           />
+          <motion.div
+            animate={{ 
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ duration: 30, repeat: Infinity, delay: 10 }}
+            className="absolute top-1/2 left-1/4 w-12 md:w-24 h-12 md:h-24 bg-gradient-to-br from-cyan-300/30 to-blue-300/30 rounded-full blur-lg"
+          />
           
           {/* Floating particles */}
-          {[...Array(6)].map((_, i) => (
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
               animate={{
-                y: [0, -15, 0],
-                x: [0, Math.sin(i) * 10, 0],
+                y: [0, -30, 0],
+                x: [0, Math.sin(i) * 20, 0],
                 opacity: [0.3, 0.6, 0.3],
                 scale: [1, 1.2, 1]
               }}
               transition={{
-                duration: 4 + i * 0.5,
+                duration: 6 + i * 0.5,
                 repeat: Infinity,
-                delay: i * 1,
+                delay: i * 1.5,
                 ease: "easeInOut"
               }}
-              className="absolute w-1.5 h-1.5 md:w-2 md:h-2 bg-cyan-400/50 rounded-full"
+              className="absolute w-2 h-2 bg-cyan-400/50 rounded-full"
               style={{
-                top: `${20 + (i % 3) * 20}%`,
-                left: `${15 + (i % 2) * 35}%`,
+                top: `${20 + (i % 3) * 30}%`,
+                left: `${10 + (i % 4) * 25}%`,
               }}
             />
           ))}
+          
+          {/* Geometric shapes */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 right-1/4 w-16 h-16 border-2 border-cyan-400/40 rounded-lg"
+          />
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-1/4 left-1/3 w-12 h-12 border-2 border-blue-400/40 rounded-full"
+          />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -277,7 +304,7 @@ export default function Home() {
               className="relative order-2 lg:order-1"
             >
               {/* Team Photo Placeholder */}
-              <div className="relative bg-gradient-to-br from-cyan-100 to-blue-100 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden h-[300px] sm:h-[400px] lg:h-[500px] shadow-2xl border border-cyan-300">
+              <div className="relative bg-gradient-to-br from-cyan-100 to-blue-100 backdrop-blur-sm rounded-3xl overflow-hidden h-[300px] sm:h-[400px] lg:h-[500px] shadow-2xl border border-cyan-300">
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 6, repeat: Infinity }}
@@ -351,7 +378,6 @@ export default function Home() {
               <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
                 Sample testing content for team section. This is placeholder text for testing purposes only.
               </p>
-              
               <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {[
                   { icon: "🎯", text: "Experienced leadership across all domains", color: "bg-cyan-100 border-cyan-300" },
@@ -366,7 +392,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className={`flex items-center space-x-3 md:space-x-4 p-3 md:p-4 ${point.color} backdrop-blur-sm rounded-xl hover:shadow-lg transition-all duration-300 border`}
                   >
-                    <div className="text-xl md:text-2xl">{point.icon}</div>
+                    <div className="text-xl md:text-2xl flex-shrink-0">{point.icon}</div>
                     <span className="text-gray-700 font-medium text-sm md:text-base">{point.text}</span>
                   </motion.div>
                 ))}
@@ -375,7 +401,7 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05, backgroundColor: "#0891b2", boxShadow: "0 25px 50px rgba(8, 145, 178, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-cyan-600 border-2 border-cyan-600 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-xl hover:bg-cyan-700 hover:border-cyan-700 transition-all duration-300 shadow-2xl w-full sm:w-auto"
+                className="bg-cyan-600 border-2 border-cyan-600 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold text-lg md:text-xl hover:bg-cyan-700 hover:border-cyan-700 transition-all duration-300 shadow-2xl"
               >
                 Meet Our Team →
               </motion.button>
@@ -384,7 +410,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Global Reach CTA - MOBILE RESPONSIVE */}
+      {/* Global Reach CTA */}
       <section className="py-12 md:py-20 bg-gradient-to-br from-[#001122] via-[#002445] to-[#003366] text-white relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0">
@@ -399,13 +425,13 @@ export default function Home() {
             className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-cyan-400 to-blue-500"
           />
           
-          {/* Floating geometric shapes - responsive sizes */}
+          {/* Floating geometric shapes */}
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
               animate={{
-                x: [0, Math.sin(i) * 30, 0],
-                y: [0, Math.cos(i) * 20, 0],
+                x: [0, Math.sin(i) * 50, 0],
+                y: [0, Math.cos(i) * 30, 0],
                 rotate: [0, 360, 0],
                 opacity: [0.1, 0.3, 0.1]
               }}
@@ -414,7 +440,7 @@ export default function Home() {
                 repeat: Infinity,
                 delay: i * 2
               }}
-              className="absolute w-8 h-8 md:w-16 md:h-16 border-2 border-cyan-400/30 rounded-lg"
+              className="absolute w-8 md:w-16 h-8 md:h-16 border-2 border-cyan-400/30 rounded-lg"
               style={{
                 top: `${20 + i * 12}%`,
                 left: `${15 + i * 14}%`,
@@ -451,21 +477,21 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05, backgroundColor: "#06b6d4", boxShadow: "0 25px 50px rgba(6, 182, 212, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-cyan-400 text-gray-900 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg shadow-2xl transition-all duration-300 w-full sm:w-auto"
+                className="bg-cyan-400 text-gray-900 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg shadow-2xl transition-all duration-300"
               >
                 Get Started Today
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05, backgroundColor: "#06b6d4", color: "#1f2937" }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-cyan-400 text-cyan-400 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
+                className="border-2 border-cyan-400 text-cyan-400 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300"
               >
                 Schedule Consultation
               </motion.button>
             </div>
             
-            {/* Contact stats - mobile responsive grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
+            {/* Contact stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
               {[
                 { icon: "📞", label: "24/7 Support", value: "Always Available" },
                 { icon: "⚡", label: "Quick Response", value: "< 2 Hours" },
@@ -477,8 +503,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="text-center p-4 md:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                  className="text-center p-4 md:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10"
                 >
                   <div className="text-2xl md:text-3xl mb-2 md:mb-3">{item.icon}</div>
                   <div className="text-base md:text-lg font-semibold text-white mb-1">{item.label}</div>
@@ -490,7 +515,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Subscribe Newsletter Section - WHITE - MOBILE OPTIMIZED */}
+      {/* Subscribe Newsletter Section - WHITE */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-white via-gray-50 to-cyan-50 relative overflow-hidden">
         {/* Enhanced background elements */}
         <div className="absolute inset-0">
@@ -514,29 +539,35 @@ export default function Home() {
             className="absolute bottom-0 right-0 w-full h-12 md:h-24 bg-gradient-to-l from-blue-200/30 to-cyan-200/30 transform skew-y-1"
           />
           
-          {/* Floating elements - responsive sizes */}
-          {[...Array(6)].map((_, i) => (
+          {/* Floating elements */}
+          {[...Array(10)].map((_, i) => (
             <motion.div
               key={i}
               animate={{
-                y: [0, -20, 0],
-                x: [0, Math.sin(i) * 15, 0],
+                y: [0, -40, 0],
+                x: [0, Math.sin(i) * 30, 0],
                 opacity: [0.2, 0.5, 0.2],
                 rotate: [0, 360, 0]
               }}
               transition={{
-                duration: 6 + i * 0.5,
+                duration: 8 + i * 0.5,
                 repeat: Infinity,
                 delay: i * 0.8,
                 ease: "easeInOut"
               }}
               className="absolute"
               style={{
-                top: `${15 + (i % 3) * 30}%`,
-                left: `${10 + (i % 2) * 40}%`,
+                top: `${10 + (i % 5) * 20}%`,
+                left: `${5 + (i % 3) * 35}%`,
               }}
             >
-              <div className={`${i % 3 === 0 ? 'w-2 h-2' : i % 3 === 1 ? 'w-1.5 h-1.5' : 'w-1 h-1'} bg-cyan-400/50 rounded-full`} />
+              {i % 3 === 0 ? (
+                <div className="w-2 md:w-3 h-2 md:h-3 bg-cyan-400/50 rounded-full" />
+              ) : i % 3 === 1 ? (
+                <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-blue-400/50 rounded-full" />
+              ) : (
+                <div className="w-1 h-1 bg-cyan-300/50 rounded-full" />
+              )}
             </motion.div>
           ))}
         </div>
@@ -559,7 +590,7 @@ export default function Home() {
                   opacity: [0.1, 0.2, 0.1]
                 }}
                 transition={{ duration: 15, repeat: Infinity }}
-                className="absolute top-0 right-0 w-40 h-40 md:w-80 md:h-80 bg-cyan-400/20 rounded-full -mr-20 md:-mr-40 -mt-20 md:-mt-40"
+                className="absolute top-0 right-0 w-40 md:w-80 h-40 md:h-80 bg-cyan-400/20 rounded-full -mr-20 md:-mr-40 -mt-20 md:-mt-40"
               />
               <motion.div
                 animate={{ 
@@ -568,8 +599,30 @@ export default function Home() {
                   opacity: [0.08, 0.15, 0.08]
                 }}
                 transition={{ duration: 20, repeat: Infinity }}
-                className="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 bg-purple-400/20 rounded-full -ml-16 md:-ml-32 -mb-16 md:-mb-32"
+                className="absolute bottom-0 left-0 w-32 md:w-64 h-32 md:h-64 bg-purple-400/20 rounded-full -ml-16 md:-ml-32 -mb-16 md:-mb-32"
               />
+              
+              {/* Decorative dots */}
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.2, 0.5, 0.2],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 4 + i * 0.5,
+                    repeat: Infinity,
+                    delay: i * 0.3
+                  }}
+                  className="absolute w-2 md:w-3 h-2 md:h-3 bg-cyan-400/40 rounded-full"
+                  style={{
+                    top: `${10 + (i % 4) * 25}%`,
+                    left: `${10 + Math.floor(i / 4) * 30}%`,
+                  }}
+                />
+              ))}
             </div>
             
             <div className="relative z-10">
@@ -581,14 +634,14 @@ export default function Home() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <div className="inline-block bg-cyan-500/20 border border-cyan-500/30 rounded-full px-4 md:px-6 py-2 mb-4 md:mb-6">
+                    <div className="inline-block bg-cyan-500/20 border border-cyan-500/30 rounded-full px-4 md:px-6 py-1.5 md:py-2 mb-4 md:mb-6">
                       <span className="text-cyan-700 font-semibold text-xs md:text-sm uppercase tracking-wide">Newsletter</span>
                     </div>
                     
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 mb-4 md:mb-6 leading-tight">
                       Stay Updated with Our <span className="text-cyan-600">Newsletter</span>
                     </h2>
-                    <p className="text-gray-600 text-sm md:text-base lg:text-lg mb-0 leading-relaxed">
+                    <p className="text-gray-600 text-base md:text-lg mb-0 leading-relaxed">
                       Sample testing content for newsletter section. This is placeholder text for testing purposes only.
                     </p>
                   </motion.div>
@@ -616,7 +669,7 @@ export default function Home() {
                         scale: [1, 1.2, 1]
                       }}
                       transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                      className="absolute top-3 md:top-4 right-3 md:right-4 w-5 h-5 md:w-6 md:h-6 text-cyan-400"
+                      className="absolute top-3 md:top-4 right-3 md:right-4 w-5 md:w-6 h-5 md:h-6 text-cyan-400"
                     >
                       ✨
                     </motion.div>
@@ -645,7 +698,7 @@ export default function Home() {
                             boxShadow: "0 15px 30px rgba(6, 182, 212, 0.4)"
                           }}
                           whileTap={{ scale: 0.95 }}
-                          className="w-full bg-cyan-600 text-white px-4 md:px-6 py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-sm md:text-base lg:text-lg hover:bg-cyan-700 transition-all duration-300 relative overflow-hidden group"
+                          className="w-full bg-cyan-600 text-white px-4 md:px-6 py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg hover:bg-cyan-700 transition-all duration-300 relative overflow-hidden group"
                         >
                           <motion.span
                             className="relative z-10"
