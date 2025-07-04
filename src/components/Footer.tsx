@@ -3,185 +3,104 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const Footer = () => {
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0 }
-    };
-
+export default function Footer() {
     return (
-        <footer className="bg-[#002445] text-white">
-            {/* Main Footer */}
-            <div className="max-w-7xl mx-auto px-6 py-16">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    {/* Column 1 - About */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        transition={{ duration: 0.5 }}
-                        className="space-y-4"
-                    >
-                        <div className="flex items-center space-x-2 mb-6">
-                            <div className="w-10 h-10 bg-cyan-400 rounded-lg flex items-center justify-center text-[#002445] font-bold text-2xl">
-                                T
-                            </div>
-                            <span className="text-2xl font-bold">TEST</span>
-                        </div>
-                        
-                        <p className="text-gray-300 leading-relaxed">
-                            This is a test description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Test text for footer component.
-                        </p>
-                        
-                        <div className="flex space-x-4 pt-4">
-                            {['Test1', 'Test2', 'Test3', 'Test4'].map((social) => (
-                                <motion.a
-                                    key={social}
-                                    href="#"
-                                    whileHover={{ scale: 1.1, y: -3 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="w-10 h-10 bg-gray-700 hover:bg-cyan-400 rounded-full flex items-center justify-center text-white hover:text-[#002445] transition-colors"
-                                >
-                                    {social[0]}
-                                </motion.a>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Column 2 - Services */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="space-y-4"
-                    >
-                        <h3 className="text-xl font-bold mb-6">Test Services</h3>
-                        <div className="space-y-3">
-                            {[
-                                "Test Service 1",
-                                "Test Service 2",
-                                "Test Service 3",
-                                "Test Service 4",
-                                "Test Service 5",
-                                "Test Service 6"
-                            ].map((item, index) => (
-                                <motion.div
-                                    key={item}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.3, delay: 0.1 + (index * 0.05) }}
-                                    viewport={{ once: true }}
-                                >
-                                    <Link 
-                                        href="/services" 
-                                        className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center"
-                                    >
-                                        <span className="mr-2">→</span> {item}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Column 3 - Quick Links */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="space-y-4"
-                    >
-                        <h3 className="text-xl font-bold mb-6">Test Links</h3>
-                        <div className="space-y-3">
-                            {[
-                                { name: "Test Link 1", link: "/test-1" },
-                                { name: "Test Link 2", link: "/test-2" },
-                                { name: "Test Link 3", link: "/test-3" },
-                                { name: "Test Link 4", link: "/test-4" },
-                                { name: "Test Link 5", link: "/test-5" },
-                                { name: "Test Link 6", link: "/test-6" }
-                            ].map((item, index) => (
-                                <motion.div
-                                    key={item.name}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.3, delay: 0.1 + (index * 0.05) }}
-                                    viewport={{ once: true }}
-                                >
-                                    <Link 
-                                        href={item.link} 
-                                        className="text-gray-300 hover:text-cyan-400 transition-colors flex items-center"
-                                    >
-                                        <span className="mr-2">→</span> {item.name}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Column 4 - Contact */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="space-y-4"
-                    >
-                        <h3 className="text-xl font-bold mb-6">Test Contact</h3>
-                        <div className="space-y-4">
-                            <div className="flex items-start space-x-3">
-                                <div className="text-cyan-400 mt-1">📍</div>
-                                <p className="text-gray-300">123 Test Street, Test City, TS 12345</p>
-                            </div>
-                            <div className="flex items-start space-x-3">
-                                <div className="text-cyan-400 mt-1">📞</div>
-                                <p className="text-gray-300">+1 (123) 456-7890</p>
-                            </div>
-                            <div className="flex items-start space-x-3">
-                                <div className="text-cyan-400 mt-1">✉️</div>
-                                <p className="text-gray-300">test@example.com</p>
-                            </div>
-                        </div>
-
-                        <div className="pt-4">
-                            <motion.button
-                                whileHover={{ scale: 1.02, backgroundColor: "#06b6d4" }}
-                                whileTap={{ scale: 0.98 }}
-                                className="bg-cyan-400 text-[#002445] px-6 py-3 rounded-lg font-bold hover:shadow-lg transition-all"
-                            >
-                                Test Button
-                            </motion.button>
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="border-t border-gray-700">
-                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
-                    <p className="text-gray-400 mb-4 md:mb-0">
-                        © {new Date().getFullYear()} TEST. All rights reserved.
-                    </p>
-                    <div className="flex space-x-6">
-                        <Link href="/test-1" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                            Test Policy
-                        </Link>
-                        <Link href="/test-2" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                            Test Terms
-                        </Link>
-                        <Link href="/test-3" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                            Test Map
-                        </Link>
+        <footer className="w-full bg-black text-white pt-12 pb-0 px-2 sm:px-4 md:px-0">
+            <div className="max-w-6xl mx-auto">
+                {/* Contact Header */}
+                <div className="text-center mb-8 px-2">
+                    <div className="text-sm opacity-80 mb-1">Contact Us</div>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Let's Work Together</h2>
+                    <div className="text-base opacity-80 max-w-2xl mx-auto">
+                        Ready to elevate your business? Get in touch with us to explore tailored solutions for your needs.
                     </div>
+                </div>
+                {/* Map + Form Section */}
+                <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-0 mb-12">
+                    {/* Map Image + Arrow */}
+                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center relative min-h-[220px] md:min-h-[340px] mb-8 md:mb-0">
+                        <div className="w-full flex justify-center items-center relative">
+                            {/* World Map Image - Larger and Responsive */}
+                            <div className="relative w-full flex justify-center items-center" style={{ minHeight: 180 }}>
+                                <img src="/Huge Global.png" alt="World Map" className="w-full max-w-[95vw] sm:max-w-[420px] md:max-w-[600px] h-[180px] sm:h-[220px] md:h-[320px] object-contain rounded-xl" />
+                                {/* Optional: Overlay arrow (SVG) */}
+                                <svg className="absolute left-0 top-0 w-full h-full pointer-events-none" viewBox="0 0 600 320" fill="none">
+                                    <path d="M60 240 Q40 140 120 80 Q180 40 260 80" stroke="#fff" strokeWidth="3" fill="none" opacity="0.8" />
+                                    <polygon points="255,80 270,85 260,90" fill="#fff" opacity="0.8" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Vertical Divider */}
+                    <div className="hidden md:block w-px bg-white/30 mx-4 md:mx-8" style={{ minHeight: 220, maxHeight: 320 }} />
+                    {/* Contact Form */}
+                    <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center max-w-md mx-auto">
+                        <div className="text-lg font-semibold mb-2">Say hello</div>
+                        <div className="text-xs opacity-70 mb-6">Lorem Ipsum is simply dummy text of the printing.</div>
+                        <form className="w-full space-y-4">
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <input type="text" placeholder="First Name" className="flex-1 px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none" />
+                                <input type="text" placeholder="Last Name" className="flex-1 px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none mt-3 sm:mt-0" />
+                            </div>
+                            <input type="email" placeholder="Email Address" className="w-full px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none" />
+                            <textarea placeholder="Message" rows={4} className="w-full px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none resize-none" />
+                            <div className="flex justify-end">
+                                <button type="submit" className="flex items-center gap-2 bg-white text-black px-6 py-2 rounded-full font-semibold shadow hover:bg-gray-200 transition-all">
+                                    Get in Touch
+                                    <span className="inline-block bg-black text-white rounded-full w-7 h-7 flex items-center justify-center ml-2">
+                                        <svg width="16" height="16" fill="none" viewBox="0 0 20 20"><path d="M7 13l5-5m0 0l-5-5m5 5H2" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {/* Footer Columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 mt-12 text-center md:text-left">
+                    {/* Features */}
+                    <div>
+                        <div className="font-bold mb-3 text-lg">Features</div>
+                        <ul className="space-y-2 text-sm opacity-90">
+                            <li>Reviews</li>
+                            <li>Community</li>
+                            <li>Social Media Kit</li>
+                            <li>Affiliate</li>
+                        </ul>
+                    </div>
+                    {/* Account */}
+                    <div>
+                        <div className="font-bold mb-3 text-lg">Account</div>
+                        <ul className="space-y-2 text-sm opacity-90">
+                            <li>Refund</li>
+                            <li>Security</li>
+                            <li>Rewards</li>
+                        </ul>
+                    </div>
+                    {/* Company */}
+                    <div>
+                        <div className="font-bold mb-3 text-lg">Company</div>
+                        <ul className="space-y-2 text-sm opacity-90">
+                            <li>Career</li>
+                            <li>Help Center</li>
+                            <li>Media</li>
+                        </ul>
+                    </div>
+                    {/* Get Connected */}
+                    <div>
+                        <div className="font-bold mb-3 text-lg">Get Connected</div>
+                        <ul className="space-y-2 text-sm opacity-90">
+                            <li>Jakarta Selatan</li>
+                            <li>Indonesia</li>
+                            <li>0812-1225-3638</li>
+                            <li>supports@metime.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr className="border-t border-white/20 mb-6" />
+                <div className="text-center text-xs opacity-80 pb-4">
+                    2019 Copyright MeTime • All right reserved • Made in Jakarta
                 </div>
             </div>
         </footer>
     );
-};
-
-export default Footer;
+}
