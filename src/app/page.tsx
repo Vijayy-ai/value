@@ -1,18 +1,15 @@
 "use client";
-import RotatingCard from '../components/RotatingCard';
 import AboutCompanyGallerySection from '../components/AboutCompanyGallerySection';
 import WhatSetsUsApartModern from '../components/WhatSetsUsApartModern';
 import SuccessStoriesSection from '../components/SuccessStoriesSection';
 import MeetOurTeamSection from '../components/MeetOurTeamSection';
 
-import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import HeroSectionUpdated from '../components/HeroSectionUpdated';
 import ServicesSection from '../components/ServicesSection';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StickyScroll from '../components/StickyScroll';
-import ParticleCanvas from '../components/ParticleCanvas';
 
 
 export default function Home() {

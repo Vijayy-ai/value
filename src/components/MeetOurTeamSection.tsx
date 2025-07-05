@@ -25,7 +25,7 @@ export default function MeetOurTeamSection() {
           <div className="mb-2 text-sm text-gray-800 font-medium">Meet Our Team</div>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 leading-tight">The Minds Behind Our Success</h2>
           <p className="text-gray-700 text-base md:text-lg mb-8 max-w-md">
-            Our experienced leadership team ensures the highest level of expertise and dedication to our clients' success.
+            Our experienced leadership team ensures the highest level of expertise and dedication to our clients&apos; success.
           </p>
           <div className="flex items-center gap-3 mt-2">
             <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-7 py-3 rounded-full text-base flex items-center gap-2 shadow-lg transition-all duration-200">

@@ -1,7 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -10,7 +9,7 @@ export default function Footer() {
                 {/* Contact Header */}
                 <div className="text-center mb-8 px-2">
                     <div className="text-sm opacity-80 mb-1">Contact Us</div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Let's Work Together</h2>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Let&apos;s Work Together</h2>
                     <div className="text-base opacity-80 max-w-2xl mx-auto">
                         Ready to elevate your business? Get in touch with us to explore tailored solutions for your needs.
                     </div>
@@ -22,7 +21,7 @@ export default function Footer() {
                         <div className="w-full flex justify-center items-center relative">
                             {/* World Map Image - Larger and Responsive */}
                             <div className="relative w-full flex justify-center items-center" style={{ minHeight: 180 }}>
-                                <img src="/Huge Global.png" alt="World Map" className="w-full max-w-[95vw] sm:max-w-[420px] md:max-w-[600px] h-[180px] sm:h-[220px] md:h-[320px] object-contain rounded-xl" />
+                                <Image src="/Huge Global.png" alt="World Map" width={600} height={320} className="w-full max-w-[95vw] sm:max-w-[420px] md:max-w-[600px] h-[180px] sm:h-[220px] md:h-[320px] object-contain rounded-xl" />
                                 {/* Optional: Overlay arrow (SVG) */}
                                 <svg className="absolute left-0 top-0 w-full h-full pointer-events-none" viewBox="0 0 600 320" fill="none">
                                     <path d="M60 240 Q40 140 120 80 Q180 40 260 80" stroke="#fff" strokeWidth="3" fill="none" opacity="0.8" />
