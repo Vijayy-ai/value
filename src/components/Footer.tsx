@@ -37,15 +37,15 @@ export default function Footer() {
                     <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center max-w-md mx-auto">
                         <div className="text-lg font-semibold mb-2">Say hello</div>
                         <div className="text-xs opacity-70 mb-6">Lorem Ipsum is simply dummy text of the printing.</div>
-                        <form className="w-full space-y-4">
-                            <div className="flex flex-col sm:flex-row gap-3">
-                                <input type="text" placeholder="First Name" className="flex-1 px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none" />
-                                <input type="text" placeholder="Last Name" className="flex-1 px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none mt-3 sm:mt-0" />
+                        <form className="w-full flex flex-col gap-4">
+                            <div className="flex flex-col md:flex-row gap-4">
+                                <input type="text" placeholder="First Name" className="w-full md:w-1/2 px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none" />
+                                <input type="text" placeholder="Last Name" className="w-full md:w-1/2 px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none" />
                             </div>
                             <input type="email" placeholder="Email Address" className="w-full px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none" />
                             <textarea placeholder="Message" rows={4} className="w-full px-4 py-2 rounded bg-[#222] text-white placeholder-gray-400 focus:outline-none resize-none" />
-                            <div className="flex justify-end">
-                                <button type="submit" className="flex items-center gap-2 bg-white text-black px-6 py-2 rounded-full font-semibold shadow hover:bg-gray-200 transition-all">
+                            <div className="flex justify-center md:justify-end w-full mt-2">
+                                <button type="submit" className="w-full md:w-auto flex items-center gap-2 bg-white text-black px-6 py-2 rounded-full font-semibold shadow hover:bg-gray-200 transition-all justify-center md:justify-end">
                                     Get in Touch
                                     <span className="inline-block bg-black text-white rounded-full w-7 h-7 flex items-center justify-center ml-2">
                                         <svg width="16" height="16" fill="none" viewBox="0 0 20 20"><path d="M7 13l5-5m0 0l-5-5m5 5H2" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>

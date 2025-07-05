@@ -5,7 +5,7 @@ const ServiceSection2 = () => {
   return (
     <section className="py-20 bg-[#001f3f]">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <motion.h3
               initial={{ opacity: 0, x: -50 }}
@@ -21,7 +21,7 @@ const ServiceSection2 = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-              className="text-4xl font-bold text-white mt-2"
+              className="text-xl sm:text-2xl md:text-4xl font-bold text-white mt-2 break-words"
             >
               Lorem ipsum dolor sit amet,
             </motion.h2>
@@ -40,7 +40,7 @@ const ServiceSection2 = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-              className="text-gray-300 mb-6"
+              className="text-gray-300 mb-6 break-words text-sm md:text-base"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
             </motion.p>

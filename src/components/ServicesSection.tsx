@@ -13,7 +13,7 @@ const ServicesSection = () => {
   if (!mounted) return null;
 
   return (
-    <section className="relative h-screen bg-white py-20 overflow-hidden">
+    <section className="relative bg-white py-20 overflow-hidden">
       {/* Container */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center h-full">
